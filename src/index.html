@@ -1,0 +1,69 @@
+<!doctype html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script>
+  var myVar;
+  var myVar2;
+  
+  function checkStatus()
+  {
+      $("#status").click();
+      if(document.getElementById("statusGame").value==="Game Started")
+      {
+        stopFunction();
+        document.getElementById("start").style.display="none";
+        document.getElementById("end").style.display="block";
+        myVar2= setInterval(numberDrawn, 10000);
+      }
+  }
+  
+  function showImage(){
+      myVar = setInterval(checkStatus, 1000);
+  }
+
+  function numberDrawn()
+  {
+    $("#endstatus").click();
+    if(document.getElementById("statusGame").value==="Game Ended")
+    {
+      stopFunction2();
+    }
+    $("#numberDrawn").click();
+  }
+
+  function stopFunction(){
+      clearTimeout(myVar); // stop the timer
+  }
+
+  function stopFunction2(){
+      clearTimeout(myVar2); // stop the timer
+  }
+
+
+
+  $(document).ready(function(){
+      showImage();
+  });
+  </script>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tambola</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

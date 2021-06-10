@@ -1,0 +1,26 @@
+<head>
+  <script>
+    var myVar;    
+    function showImage(){
+      alert("inside show Image");
+        if(this.gameStatus)
+        {
+          stopFunction();
+        }
+        $("#status").click();
+        myVar = setTimeout(showImage, 2000);
+        alert("exit show Image")
+    }
+    function stopFunction(){
+        clearTimeout(myVar); // stop the timer
+    }
+    $(document).onload(function(){
+      console.log("inside show Image");
+        showImage();
+    });
+    </script>
+</head>
+<app-menu></app-menu>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

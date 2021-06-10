@@ -1,0 +1,121 @@
+
+
+<div class="container">
+  <div>
+  <h1 class="headerMessage">{{gameStatus}}</h1>
+  </div>
+  <div class="board">
+    <div class="game"><p class="gameId">#GameId- {{player.gameId}}</p></div>
+  <div class="player"><p class="aboveMessage">player Id- <b><span style="font-size:15px;">{{player.playerId}}</span></b></p></div>
+    <div class="ticket">
+      <div style="float: left;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[1].showGreen">{{boxNumb[1].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[2].showGreen">{{boxNumb[2].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[3].showGreen">{{boxNumb[3].num}}</div>
+        <div class="block1" *ngIf="boxNumb[1].showCross">&#10006; {{boxNumb[1].num}}</div>
+        <div class="block1" *ngIf="boxNumb[2].showCross">&#10006; {{boxNumb[2].num}}</div>
+        <div class="block1" *ngIf="boxNumb[3].showCross">&#10006; {{boxNumb[3].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[1].showCross && !boxNumb[1].showGreen" >{{boxNumb[1].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[2].showCross && !boxNumb[2].showGreen">{{boxNumb[2].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[3].showCross && !boxNumb[3].showGreen">{{boxNumb[3].num}}</div>
+      </div>
+      <div  style="float: right;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[4].showGreen">{{boxNumb[4].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[5].showGreen">{{boxNumb[5].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[6].showGreen">{{boxNumb[6].num}}</div>
+        <div class="block1" *ngIf="boxNumb[4].showCross">&#10006; {{boxNumb[4].num}}</div>
+        <div class="block1" *ngIf="boxNumb[5].showCross">&#10006; {{boxNumb[5].num}}</div>
+        <div class="block1" *ngIf="boxNumb[6].showCross">&#10006; {{boxNumb[6].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[4].showCross && !boxNumb[4].showGreen" >{{boxNumb[4].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[5].showCross && !boxNumb[5].showGreen">{{boxNumb[5].num}} </div>
+        <div class="block1" *ngIf="! boxNumb[6].showCross && !boxNumb[6].showGreen">{{boxNumb[6].num}}</div>
+      </div>
+      <div style="float: left;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[7].showGreen">{{boxNumb[7].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[8].showGreen">{{boxNumb[8].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[9].showGreen">{{boxNumb[9].num}}</div>
+        <div class="block1" *ngIf="boxNumb[7].showCross">&#10006; {{boxNumb[7].num}}</div>
+        <div class="block1" *ngIf="boxNumb[8].showCross">&#10006; {{boxNumb[8].num}}</div>
+        <div class="block1" *ngIf="boxNumb[9].showCross">&#10006; {{boxNumb[9].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[7].showCross && !boxNumb[7].showGreen" >{{boxNumb[7].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[8].showCross && !boxNumb[8].showGreen">{{boxNumb[8].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[9].showCross && !boxNumb[9].showGreen">{{boxNumb[9].num}}</div>
+      </div>
+      <div  style="float: right;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[10].showGreen">{{boxNumb[10].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[11].showGreen">{{boxNumb[11].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[12].showGreen">{{boxNumb[12].num}}</div>
+        <div class="block1" *ngIf="boxNumb[10].showCross">&#10006; {{boxNumb[10].num}}</div>
+        <div class="block1" *ngIf="boxNumb[11].showCross">&#10006; {{boxNumb[11].num}}</div>
+        <div class="block1" *ngIf="boxNumb[12].showCross">&#10006; {{boxNumb[12].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[10].showCross && !boxNumb[10].showGreen" >{{boxNumb[10].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[11].showCross && !boxNumb[11].showGreen">{{boxNumb[11].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[12].showCross && !boxNumb[12].showGreen">{{boxNumb[12].num}}</div>
+      </div>
+      <div style="float: left;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[13].showGreen">{{boxNumb[13].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[14].showGreen">{{boxNumb[14].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[15].showGreen">{{boxNumb[15].num}}</div>
+        <div class="block1" *ngIf="boxNumb[13].showCross">&#10006; {{boxNumb[13].num}}</div>
+        <div class="block1" *ngIf="boxNumb[14].showCross">&#10006; {{boxNumb[14].num}}</div>
+        <div class="block1" *ngIf="boxNumb[15].showCross">&#10006; {{boxNumb[15].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[13].showCross && !boxNumb[13].showGreen" >{{boxNumb[13].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[14].showCross && !boxNumb[14].showGreen">{{boxNumb[14].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[15].showCross && !boxNumb[15].showGreen">{{boxNumb[15].num}}</div>
+      </div>
+      <div  style="float: right;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[16].showGreen">{{boxNumb[16].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[17].showGreen">{{boxNumb[17].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[18].showGreen">{{boxNumb[18].num}}</div>
+        <div class="block1" *ngIf="boxNumb[16].showCross">&#10006; {{boxNumb[16].num}}</div>
+        <div class="block1" *ngIf="boxNumb[17].showCross">&#10006; {{boxNumb[17].num}}</div>
+        <div class="block1" *ngIf="boxNumb[18].showCross">&#10006; {{boxNumb[18].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[16].showCross && !boxNumb[16].showGreen" >{{boxNumb[16].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[17].showCross && !boxNumb[17].showGreen">{{boxNumb[17].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[18].showCross && !boxNumb[18].showGreen">{{boxNumb[18].num}}</div>
+      </div>
+      <div style="float: left;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[19].showGreen">{{boxNumb[19].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[20].showGreen">{{boxNumb[20].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[21].showGreen">{{boxNumb[21].num}}</div>
+        <div class="block1" *ngIf="boxNumb[19].showCross">&#10006; {{boxNumb[19].num}}</div>
+        <div class="block1" *ngIf="boxNumb[20].showCross">&#10006; {{boxNumb[20].num}}</div>
+        <div class="block1" *ngIf="boxNumb[21].showCross">&#10006; {{boxNumb[21].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[19].showCross && !boxNumb[19].showGreen" >{{boxNumb[19].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[20].showCross && !boxNumb[20].showGreen">{{boxNumb[20].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[21].showCross && !boxNumb[21].showGreen">{{boxNumb[21].num}}</div>
+      </div>
+      <div  style="float: right;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[22].showGreen">{{boxNumb[22].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[23].showGreen">{{boxNumb[23].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[24].showGreen">{{boxNumb[24].num}}</div>
+        <div class="block1" *ngIf="boxNumb[22].showCross">&#10006; {{boxNumb[22].num}}</div>
+        <div class="block1" *ngIf="boxNumb[23].showCross">&#10006; {{boxNumb[23].num}}</div>
+        <div class="block1" *ngIf="boxNumb[24].showCross">&#10006; {{boxNumb[24].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[22].showCross && !boxNumb[22].showGreen" >{{boxNumb[22].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[23].showCross && !boxNumb[23].showGreen">{{boxNumb[23].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[24].showCross && !boxNumb[24].showGreen">{{boxNumb[24].num}}</div>
+      </div>
+      <div  style="float: left;">
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[25].showGreen">{{boxNumb[25].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[26].showGreen">{{boxNumb[26].num}}</div>
+        <div class="block1" style="background-color: green;" *ngIf="boxNumb[27].showGreen">{{boxNumb[27].num}}</div>
+        <div class="block1" *ngIf="boxNumb[25].showCross">&#10006; {{boxNumb[25].num}}</div>
+        <div class="block1" *ngIf="boxNumb[26].showCross">&#10006; {{boxNumb[26].num}}</div>
+        <div class="block1" *ngIf="boxNumb[27].showCross">&#10006; {{boxNumb[27].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[25].showCross && ! boxNumb[25].showGreen" >{{boxNumb[25].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[26].showCross && ! boxNumb[26].showGreen">{{boxNumb[26].num}}</div>
+        <div class="block1" *ngIf="! boxNumb[27].showCross && ! boxNumb[27].showGreen">{{boxNumb[27].num}}</div>
+      </div>
+    </div>
+
+    <p class="belowMessage">#StayAtHomeTambola</p>
+  </div>
+  <button id="start" class="btn btn-primary" style="margin-top: 3%;margin-left: 50%;" (click)=startGame()>Start Game</button>
+  <button id="end" class="btn btn-primary" style="margin-top: 3%;margin-left: 50%; display: none;" (click)=endGame()>End Game</button>
+  <button id="status" (click)=checkStatusGame() style="display: none;">  </button>
+  <button id="endstatus" (click)=checkStatusEndGame() style="display: none;">  </button>
+  <input id="statusText" style="display: none;"value={{gameStart}}>
+  <input id="statusGame" style="display: none;" value="{{gameStatus}}">
+  <button id="numberDrawn" (click)=numberDrawn() style="display: none;">  </button>
+</div>

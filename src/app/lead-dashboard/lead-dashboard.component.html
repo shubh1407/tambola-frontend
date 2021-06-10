@@ -1,0 +1,157 @@
+
+<div class="container">
+  
+  <div class="row" style="margin-top: 21px !important;">
+    <button class="btn btn-success add_lead_modal_btn" data-toggle="modal" data-target="#addLeadModal" style="background-color: black;">Add Lead</button>
+  </div>
+  <p></p>
+ 
+  <table class="table table-bordered table-hover leads_table" style="border-width: 2px;">
+    <thead class="thead-dark">
+    <tr>
+      <th>{{row1}}</th>
+
+      <th>{{row2}}</th>
+
+      <th>{{row3}}</th>
+
+      <th>{{row4}}</th>
+
+      <th>{{row5}}</th>
+
+      <th>{{row6}}</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let lead of leads">
+
+      <td>
+        {{lead.first_name}} {{lead.last_name}}
+      </td>
+      <td>
+        {{lead.email}}
+      </td>
+      <td>
+        {{lead.mobile}}
+      </td>
+      <td>
+        {{lead.location_type}}
+      </td>
+      <td>
+        {{lead.location_string}}
+      </td>
+      <td>
+        <button (click)=setUpdateId(lead.id) data-toggle="modal" data-target="#updateLeadModal" class="update_lead_modal_btn" style="background-color: black;color: white;">Mark Update</button><span
+        style="color: transparent"><b>//</b></span>
+        <button (click)=setDeleteId(lead.id) data-toggle="modal" data-target="#deleteLeadModal" class="delete_lead_modal_btn" style="background-color: black;color: white;">Delete</button> 
+      </td>
+
+    </tr>
+  </table>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addLeadModal" tabindex="-1" role="dialog" aria-labelledby="addLeadModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: black;color: white;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 20px;font-weight: 700;padding: 1px;">Add Lead</h5>
+        <button type="button" #addclosebutton class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form #myForm="ngForm" class="add_lead_form">
+          <div class="row">
+            <div class="col">
+              <h5>First Name <span class="required">*</span></h5> 
+               <input type="text" class="form-control" name="first_name" id="first_name" required  [(ngModel)]="leadLists.first_name" /> 
+            </div>
+            <div class="col">
+            <h5>Last Name <span class="required">*</span></h5> 
+              <input type="text" class="form-control" name="last_name" id="last_name" required  [(ngModel)]="leadLists.last_name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5>Email Address <span class="required">*</span></h5> 
+              <input type="text" class="form-control" name="email" id="email" required  [(ngModel)]="leadLists.email" />
+            </div>
+            <div class="col">
+              <h5>Mobile<span class="required">*</span></h5> 
+              <input type="text" class="form-control" name="mobile" id="mobile" required [(ngModel)]="leadLists.mobile" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5>Location Type<span class="required">*</span></h5> 
+          <select name="location_type" style="height: 35px !important;" class="form-control" required [(ngModel)]="leadLists.location_type">
+            <option value="State">State</option>
+            <option value="City">City</option>
+            <option value="Country" selected>Country</option>
+          </select> 
+            </div>
+            <div class="col">
+              <h5>Location String<span class="required">*</span></h5>
+              <input type="text"  class="form-control"  name="location_string" id="location_string" required [(ngModel)]="leadLists.location_string" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: white;color: black;">Close</button>
+        <button type="button" (click)="addLead()"  [disabled]="!myForm.form.valid" class="btn btn-primary add_lead_btn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="updateLeadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: black;color: white;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 20px;font-weight: 700;padding: 1px;">Mark Communication</h5>
+        <button type="button" #updateclosebutton class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form class="update_lead_form">
+          <input id="feed_id" name="cid" [(ngModel)]="updateId" hidden />
+          <div class="row">
+            <div class="col">
+              <h5><b>Communication</b></h5>
+               <textarea class="form-control" name="communication" id="Communication" required rows="8" cols="100" [(ngModel)]="markLead.communication" ></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: white;color: black;">Close</button>
+        <button type="button" (click)="updateLead(updateId)" class="btn btn-primary update_lead_btn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="deleteLeadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: black;color: white;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 20px;font-weight: 700;padding: 1px;">Do you wish to delete this Lead?</h5>
+        <button type="button" #deleteclosebutton class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="delete_lead_form">
+        <button type="button" (click)="deleteLead(deleteId)"  class="btn btn-primary  delete_lead_btn" style="margin-left:150px;background-color: red;color: white;">Delete</button>
+
+         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:20px;background-color: black;color: white;">Cancel</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
